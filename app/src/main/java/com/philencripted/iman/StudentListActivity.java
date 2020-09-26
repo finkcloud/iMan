@@ -2,6 +2,7 @@ package com.philencripted.iman;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,6 +33,7 @@ public class StudentListActivity extends AppCompatActivity {
         Bundle args = getStudent.getBundleExtra("bundle");
         assert args != null;
         studentArrayList = (ArrayList<Student>) args.getSerializable("student_list");
+        Toast.makeText(this, studentArrayList.get(0).getFullName(),Toast.LENGTH_LONG).show();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
        adapter = new StudentListAdapter(this, studentArrayList);
